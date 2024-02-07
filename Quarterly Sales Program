@@ -1,0 +1,33 @@
+def main():
+    #creating empty list and calling methods
+    sales_list = []
+    header_greeting()
+    get_quarterly_sales(sales_list)
+    process_sales(sales_list)
+
+
+def header_greeting():
+    print("The Quarterly Sales program")
+
+def get_quarterly_sales(sales_list):
+    #Asking user to put information on sales and adding it to list
+    for i in range(1,5):
+        amount = int(input(f"Enter sales for Q{i}: "))
+        sales_list.append(amount)
+
+
+    return sales_list
+
+def process_sales(sales_list):
+    #Running calculations on inputed informaiton
+    average_sales = sum(sales_list)/len(sales_list)
+
+    #Printing information in currency format for better reading
+    print()
+    print("Total: ", "${:,.1f}".format(sum(sales_list)))
+    print("Average Quarter: ", "${:,.1f}".format(average_sales))
+    print("Lowest Quarter: ", "${:,.1f}".format(min(sales_list)))
+    print("Highest Quarter: ", "${:,.1f}".format(max(sales_list)))
+
+
+main()
